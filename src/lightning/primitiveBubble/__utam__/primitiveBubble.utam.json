@@ -1,0 +1,17 @@
+{
+    "root": true,
+    "selector": {
+        "css": "lightning-primitive-bubble"
+    },
+    "methods": [
+        {
+            "name": "getText",
+            "compose": [
+                {
+                    "element": "root",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "methods": [
+    {
+      "name": "clickIcon",
+      "compose": [
+        {
+          "element": "icon",
+          "apply": "click"
+        }
+      ]
+    }
+  ],
+  "shadow": {
+    "elements": [
+      {
+        "type": "clickable",
+        "name": "icon",
+        "public": true,
+        "selector": {
+          "css": "svg"
+        }
+      }
+    ]
+  }
+}

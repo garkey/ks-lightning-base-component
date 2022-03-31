@@ -1,0 +1,71 @@
+{
+    "methods": [
+        {
+            "name": "getLabel",
+            "compose": [
+                {
+                    "element": "legend",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "firstNameInput",
+                "type": "utam-lightning/pageObjects/input",
+                "selector": {
+                    "css": "lightning-input[data-field='firstName']"
+                },
+                "public": true
+            },
+            {
+                "name": "informalNameInput",
+                "type": "utam-lightning/pageObjects/input",
+                "selector": {
+                    "css": "lightning-input[data-field='informalName']"
+                },
+                "public": true
+            },
+            {
+                "name": "lastNameInput",
+                "type": "utam-lightning/pageObjects/input",
+                "selector": {
+                    "css": "lightning-input[data-field='lastName']"
+                },
+                "public": true
+            },
+            {
+                "name": "middleNameInput",
+                "type": "utam-lightning/pageObjects/input",
+                "selector": {
+                    "css": "lightning-input[data-field='middleName']"
+                },
+                "public": true
+            },
+            {
+                "name": "salutationPicklist",
+                "type": "utam-lightning/pageObjects/picklist",
+                "selector": {
+                    "css": "lightning-picklist[data-field='salutation']"
+                },
+                "public": true
+            },
+            {
+                "name": "suffixInput",
+                "type": "utam-lightning/pageObjects/input",
+                "selector": {
+                    "css": "lightning-input[data-field='suffix']"
+                },
+                "public": true
+            },
+            {
+                "name": "legend",
+                "selector": {
+                    "css": "legend"
+                }
+            }
+        ]
+    }
+}

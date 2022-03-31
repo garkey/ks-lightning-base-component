@@ -1,0 +1,13 @@
+{
+    "methods": [
+        {
+            "name": "getLabelText",
+            "compose": [
+                {
+                    "element": "root",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ]
+}

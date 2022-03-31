@@ -1,0 +1,30 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "type": "clickable",
+                "name": "urlLink",
+                "selector": {
+                    "css": "a"
+                },
+                "public": true
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "getUrl",
+            "compose": [
+                {
+                    "apply": "getAttribute",
+                    "element": "urlLink",
+                    "args": [
+                        {
+                            "value": "\"href\""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

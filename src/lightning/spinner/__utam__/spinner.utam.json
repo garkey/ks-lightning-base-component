@@ -1,0 +1,41 @@
+{
+    "methods": [
+        {
+            "name": "isSpinning",
+            "compose": [
+                {
+                    "element": "root",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "hasAssistingText",
+            "compose": [
+                {
+                    "element": "assistingText",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "getAssistingText",
+            "compose": [
+                {
+                    "element": "assistingText",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "assistingText",
+                "selector": {
+                    "css": ".slds-assistive-text"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "comboBox",
+                "type": "utam-lightning/pageObjects/combobox",
+                "selector": {
+                    "css": "lightning-combobox"
+                },
+                "nullable": true,
+                "public": true
+            },
+            {
+                "name": "dualListBox",
+                "type": "utam-lightning/pageObjects/dualListbox",
+                "selector": {
+                    "css": "lightning-dual-listbox"
+                },
+                "nullable": true,
+                "public": true
+            }
+        ]
+    }
+}

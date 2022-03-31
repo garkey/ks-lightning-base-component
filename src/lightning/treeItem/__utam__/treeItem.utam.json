@@ -1,0 +1,101 @@
+{
+    "methods": [
+        {
+            "name": "toggleTreeBranch",
+            "compose": [
+                {
+                    "element": "toggleButton",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "getTreeBranchText",
+            "compose": [
+                {
+                    "element": "link",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "clickTreeLink",
+            "compose": [
+                {
+                    "element": "link",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "getTreeLinkHref",
+            "compose": [
+                {
+                    "element": "link",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"href\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getRootLevelItemsCount",
+            "compose": [
+                {
+                    "element": "rootLevelItems",
+                    "apply": "size"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "treeItem",
+                "public": true,
+                "type": "utam-lightning/pageObjects/treeItem",
+                "selector": {
+                    "css": "lightning-tree-item",
+                    "returnAll": true
+                },
+                "filter": {
+                    "apply": "getTreeBranchText",
+                    "findFirst": true,
+                    "matcher": {
+                        "type": "stringContains",
+                        "args": [
+                            {
+                                "name": "treeBranchTitle",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "rootLevelItems",
+                "selector": {
+                    "css": "lightning-tree-item[aria-level='1']",
+                    "returnAll": true
+                }
+            },
+            {
+                "name": "toggleButton",
+                "type": "clickable",
+                "selector": {
+                    "css": "button"
+                }
+            },
+            {
+                "name": "link",
+                "type": "clickable",
+                "selector": {
+                    "css": "a"
+                }
+            }
+        ]
+    }
+}

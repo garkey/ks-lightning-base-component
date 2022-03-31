@@ -1,0 +1,23 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "button",
+                "selector": {
+                    "css": "button"
+                },
+                "public": true,
+                "elements": [
+                    {
+                        "name": "icon",
+                        "type": "utam-lightning/pageObjects/primitiveIcon",
+                        "selector": {
+                            "css": "lightning-primitive-icon"
+                        },
+                        "public": true
+                    }
+                ]
+            }
+        ]
+    }
+}

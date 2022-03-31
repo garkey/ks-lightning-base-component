@@ -1,0 +1,591 @@
+{
+    "methods": [
+      {
+        "name" : "getCellValueByIndex",
+        "return" : "string",
+        "external" : {
+          "apply" : "getCellValueByIndex",
+          "type" : "utam-lightning/utils/datatableUtils",
+          "args": [
+            {
+              "name": "rowIndex",
+              "type": "number"
+            },
+            {
+              "name": "columnIndex",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "getCellValueByLabel",
+        "return" : "string",
+        "external" : {
+          "apply" : "getCellValueByLabel",
+          "type" : "utam-lightning/utils/datatableUtils",
+          "args": [
+            {
+              "name": "rowIndex",
+              "type": "number"
+            },
+            {
+              "name": "fieldLabel",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      {
+        "name": "getNumRows",
+        "compose": [
+          {
+            "element": "tableRows",
+            "apply": "size"
+          }
+        ]
+      },
+      {
+        "name": "getNumSelectedRows",
+        "compose": [
+          {
+            "element": "selectedRows",
+            "apply": "size"
+          }
+        ]
+      },
+      {
+        "name": "scrollToLastRow",
+        "compose": [
+          {
+            "element": "lastRow",
+            "apply": "moveTo"
+          }
+        ]
+      },
+      {
+        "name": "isRowSelected",
+        "compose": [
+          {
+            "element": "row",
+            "apply": "getAttribute",
+            "args": [
+              {
+                "value": "\"aria-selected\""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "isLoading",
+        "compose": [
+          {
+            "element": "loadingIndicator",
+            "apply": "isPresent"
+          }
+        ]
+      },
+      {
+        "name": "getNumColumns",
+        "compose": [
+          {
+            "element": "columns",
+            "apply": "size"
+          }
+        ]
+      },
+      {
+        "name": "isSortableColumn",
+        "compose": [
+          {
+            "element": "sortableHeader",
+            "apply": "isPresent"
+          }
+        ]
+      },
+      {
+        "name": "isSortedAscending",
+        "compose": [
+          {
+            "element": "ascendingHeaderSort",
+            "apply": "isPresent"
+          }
+        ]
+      },
+      {
+        "name": "isSortedDescending",
+        "compose": [
+          {
+            "element": "descendingHeaderSort",
+            "apply": "isPresent"
+          }
+        ]
+      },
+      {
+        "name": "clickSelectAllCheckbox",
+        "compose": [
+          {
+            "element": "selectAllCheckbox",
+            "apply": "javascriptClick"
+          }
+        ]
+      },
+      {
+        "name": "clickSortHeaderButton",
+        "compose": [
+          {
+            "element": "sortableHeaderLink",
+            "apply": "javascriptClick"
+          }
+        ]
+      },
+      {
+        "name": "getWidth",
+        "compose": [
+          {
+            "element": "columnByLabel",
+            "apply": "getAttribute",
+            "args": [
+              {
+                "value": "\"style\""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name" : "hasHeaderActions",
+        "compose" : [
+          {
+            "element" : "primitiveHeaderActions",
+            "apply" : "isPresent"
+          }
+        ]
+      },
+      {
+        "name" : "isSelectableRow",
+        "compose" : [
+          {
+            "element" : "checkbox",
+            "apply" : "isPresent"
+          }
+        ]
+      },
+      {
+        "name" : "toggleRowSelection",
+        "compose" : [
+          {
+            "element" : "checkbox",
+            "apply" : "javascriptClick"
+          }
+        ]
+      },
+      {
+        "name": "getRowHeaderText",
+        "compose": [
+          {
+            "element": "rowHeader",
+            "apply": "getText"
+          }
+        ]
+      },
+      {
+        "name" : "hasRowActionInRow",
+        "compose" : [
+          {
+            "element" : "primitiveCellActions",
+            "apply" : "isPresent"
+          }
+        ]
+      }
+    ],
+    "shadow": {
+      "elements": [
+        {
+          "name": "header",
+          "selector": {
+            "css": "thead tr"
+          },
+          "elements": [
+            {
+              "name": "columns",
+              "selector": {
+                "css": "th",
+                "returnAll": true
+              }
+            },
+            {
+              "name": "selectionColumn",
+              "selector": {
+                "css": "th:first-child"
+              },
+              "elements": [
+                {
+                  "name": "selectionColumnHeaderFactory",
+                  "selector": {
+                    "css": "lightning-primitive-header-factory"
+                  },
+                  "shadow": {
+                    "elements": [
+                      {
+                        "type": "clickable",
+                        "name": "selectAllCheckbox",
+                        "selector": {
+                          "css": "input[type='checkbox']"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "columnByLabel",
+              "selector": {
+                "css": "th[aria-label='%s']",
+                "args": [
+                  {
+                    "name": "columnLabel",
+                    "type": "string"
+                  }
+                ]
+              },
+              "public": true,
+              "elements": [
+                {
+                  "name": "sortableHeader",
+                  "selector": {
+                    "css": "lightning-primitive-header-factory.slds-is-sortable"
+                  },
+                  "shadow": {
+                    "elements": [
+                      {
+                        "type": "clickable",
+                        "name": "sortableHeaderLink",
+                        "selector": {
+                          "css": "a[role='button']"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "headerFactory",
+                  "selector": {
+                    "css": "lightning-primitive-header-factory"
+                  },
+                  "shadow": {
+                    "elements": [
+                      {
+                        "name" : "primitiveHeaderActions",
+                        "selector" : {
+                          "css" : "lightning-primitive-header-actions"
+                        },
+                        "shadow" : {
+                          "elements" : [
+                            {
+                              "name" : "headerActions",
+                              "type" : "utam-lightning/pageObjects/buttonMenu",
+                              "selector" : {
+                                "css" : "lightning-button-menu"
+                              },
+                              "public" : true
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "resizeHandler",
+                        "selector": {
+                          "css": "lightning-primitive-resize-handler"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "ascendingHeaderSort",
+              "selector": {
+                "css": "th[aria-label='%s'][aria-sort='ascending']",
+                "args": [
+                  {
+                    "name": "columnLabel",
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "descendingHeaderSort",
+              "selector": {
+                "css": "th[aria-label='%s'][aria-sort='descending']",
+                "args": [
+                  {
+                    "name": "columnLabel",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "body",
+          "selector": {
+            "css": "tbody"
+          },
+          "elements": [
+            {
+              "name": "tableRows",
+              "selector": {
+                "css": "tr",
+                "returnAll": true
+              }
+            },
+            {
+              "name": "selectedRows",
+              "selector": {
+                "css": "tr[aria-selected='true']",
+                "returnAll": true
+              }
+            },
+            {
+              "name": "loadingIndicator",
+              "selector": {
+                "css": "tr td lightning-primitive-datatable-loading-indicator"
+              }
+            },
+            {
+              "name": "lastRow",
+              "selector": {
+                "css": "tr:last-child"
+              }
+            },
+            {
+              "name": "row",
+              "selector": {
+                "css": "tr:nth-child(%d)",
+                "args": [
+                  {
+                    "name": "rowIndex",
+                    "type": "number"
+                  }
+                ]
+              },
+              "public": true,
+              "elements": [
+                {
+                  "name": "checkboxCell",
+                  "selector": {
+                    "css": "lightning-primitive-cell-checkbox"
+                  },
+                  "shadow": {
+                    "elements": [
+                      {
+                        "name": "checkbox",
+                        "type": "clickable",
+                        "selector": {
+                          "css": "span.slds-checkbox > input"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "rowHeader",
+                  "selector": {
+                    "css": "th"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "cellByIndex",
+              "selector": {
+                "css": "tr:nth-child(%d) > :nth-child(%d)",
+                "args": [
+                  {
+                    "name": "rowIndex",
+                    "type": "number"
+                  },
+                  {
+                    "name": "columnIndex",
+                    "type": "number"
+                  }
+                ]
+              },
+              "public": true,
+              "elements": [
+                {
+                  "name": "cellFactoryByColumnIndex",
+                  "selector": {
+                    "css": "lightning-primitive-cell-factory"
+                  },
+                  "shadow": {
+                    "elements": [
+                      {
+                        "name": "formattedUrlByColumnIndex",
+                        "type": "utam-lightning/pageObjects/formattedUrl",
+                        "selector": {
+                          "css": "lightning-formatted-url"
+                        },
+                        "public": true,
+                        "nullable": true
+                      },
+                      {
+                        "name": "formattedTextByColumnIndex",
+                        "type": "utam-lightning/pageObjects/formattedText",
+                        "selector": {
+                          "css": "lightning-base-formatted-text"
+                        },
+                        "public": true,
+                        "nullable": true
+                      },
+                      {
+                        "name": "formattedNumberByColumnIndex",
+                        "type": "utam-lightning/pageObjects/formattedNumber",
+                        "selector": {
+                          "css": "lightning-formatted-number"
+                        },
+                        "public": true,
+                        "nullable": true
+                      },
+                      {
+                        "name": "customCellByColumnIndex",
+                        "selector": {
+                          "css": "lightning-primitive-custom-cell"
+                        },
+                        "shadow": {
+                          "elements": [
+                            {
+                              "name": "customCellContentByIndex",
+                              "type": "container",
+                              "selector": {
+                                "css": ":scope *"
+                              },
+                              "public": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "cellByLabel",
+              "selector": {
+                "css": "tr:nth-child(%d) > [data-label='%s']",
+                "args": [
+                  {
+                    "name": "rowIndex",
+                    "type": "number"
+                  },
+                  {
+                    "name": "fieldLabel",
+                    "type": "string"
+                  }
+                ]
+              },
+              "public": true,
+              "elements": [
+                {
+                  "name": "cellFactoryByLabel",
+                  "selector": {
+                    "css": "lightning-primitive-cell-factory"
+                  },
+                  "shadow": {
+                    "elements": [
+                      {
+                        "name": "formattedUrlByLabel",
+                        "type": "utam-lightning/pageObjects/formattedUrl",
+                        "selector": {
+                          "css": "lightning-formatted-url"
+                        },
+                        "public": true,
+                        "nullable": true
+                      },
+                      {
+                        "name": "formattedTextByLabel",
+                        "type": "utam-lightning/pageObjects/formattedText",
+                        "selector": {
+                          "css": "lightning-base-formatted-text"
+                        },
+                        "public": true,
+                        "nullable": true
+                      },
+                      {
+                        "name": "formattedNumberByLabel",
+                        "type": "utam-lightning/pageObjects/formattedNumber",
+                        "selector": {
+                          "css": "lightning-formatted-number"
+                        },
+                        "public": true,
+                        "nullable": true
+                      },
+                      {
+                        "name": "customCellByLabel",
+                        "selector": {
+                          "css": "lightning-primitive-custom-cell"
+                        },
+                        "shadow": {
+                          "elements": [
+                            {
+                              "name": "customCellContentByLabel",
+                              "type": "container",
+                              "selector": {
+                                "css": ":scope *"
+                              },
+                              "public": true
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "name": "lastCell",
+              "selector": {
+                "css": "tr:nth-child(%d) > td:last-child lightning-primitive-cell-factory",
+                "args": [
+                  {
+                    "name": "rowIndex",
+                    "type": "number"
+                  }
+                ]
+              },
+              "shadow": {
+                "elements": [
+                  {
+                    "name": "primitiveCellActions",
+                    "selector": {
+                      "css": "lightning-primitive-cell-actions"
+                    },
+                    "shadow": {
+                      "elements": [
+                        {
+                          "name": "rowAction",
+                          "public": true,
+                          "type": "utam-lightning/pageObjects/buttonMenu",
+                          "selector": {
+                            "css": "lightning-button-menu"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }

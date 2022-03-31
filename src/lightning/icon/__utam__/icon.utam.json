@@ -1,0 +1,31 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "icon",
+                "type": "utam-lightning/pageObjects/primitiveIcon",
+                "public": true,
+                "selector": {
+                    "css": "lightning-primitive-icon"
+                }
+            },
+            {
+                "name": "assistiveText",
+                "selector": {
+                    "css": ".slds-assistive-text"
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "getAssistiveText",
+            "compose": [
+                {
+                    "element": "assistiveText",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ]
+}

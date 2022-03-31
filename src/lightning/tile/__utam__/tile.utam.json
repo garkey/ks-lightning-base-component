@@ -1,0 +1,105 @@
+{
+    "methods": [
+        {
+            "name": "getTitle",
+            "compose": [
+                {
+                    "element": "title",
+                    "apply": "getTitle"
+                }
+            ]
+        },
+        {
+            "name": "clickTitle",
+            "compose": [
+                {
+                    "element": "titleLink",
+                    "apply": "click"
+                }
+            ]
+        }
+    ],
+    "elements": [
+        {
+            "name": "media",
+            "selector": {
+                "css": "span[slot='media']"
+            },
+            "elements": [
+                {
+                    "name": "icon",
+                    "type": "utam-lightning/pageObjects/icon",
+                    "selector": {
+                        "css": "lightning-icon"
+                    },
+                    "public": true
+                },
+                {
+                    "name": "avatar",
+                    "type": "utam-lightning/pageObjects/avatar",
+                    "selector": {
+                        "css": "lightning-avatar"
+                    },
+                    "public": true
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "title",
+                "selector": {
+                    "css": ".slds-tile__title"
+                },
+                "elements": [
+                    {
+                        "name": "titleLink",
+                        "type": "clickable",
+                        "selector": {
+                            "css": "a"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "utam-lightning/pageObjects/buttonMenu",
+                "name": "actionsMenu",
+                "public": true,
+                "selector": {
+                    "css": "lightning-button-menu"
+                }
+            },
+            {
+                "name": "actionByLabel",
+                "type": "utam-lightning/pageObjects/menuItem",
+                "selector": {
+                    "css": "lightning-menu-item",
+                    "returnAll": true
+                },
+                "filter": {
+                    "apply": "getItemText",
+                    "findFirst": true,
+                    "matcher": {
+                        "type": "stringContains",
+                        "args": [
+                            {
+                                "name": "text",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                },
+                "public": true
+            },
+            {
+                "name": "body",
+                "type": "container",
+                "selector": {
+                    "css": ":scope *"
+                },
+                "public": true
+            }
+        ]
+    }
+}

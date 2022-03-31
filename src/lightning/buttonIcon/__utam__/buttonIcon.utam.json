@@ -1,0 +1,54 @@
+{
+    "methods": [
+        {
+            "name": "clickButton",
+            "compose": [
+                {
+                    "element": "clickableButton",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "clickButtonWithTitle",
+            "compose": [
+                {
+                    "element": "clickableButtonWithTitle",
+                    "apply": "click"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "clickableButton",
+                "type": "clickable",
+                "selector": {
+                    "css": "button"
+                }
+            },
+            {
+                "name": "clickableButtonWithTitle",
+                "type": "clickable",
+                "selector": {
+                    "css": "button[title='%s']",
+                    "args": [
+                        {
+                            "name": "text",
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "icon",
+                "type": "utam-lightning/pageObjects/primitiveIcon",
+                "selector": {
+                    "css": "lightning-primitive-icon"
+                },
+                "public": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "formattedAddressLink",
+                "type": "clickable",
+                "selector": {
+                    "css": "a"
+                }
+            },
+            {
+                "name": "sldsTruncate",
+                "public": true,
+                "selector": {
+                    "css": ".slds-truncate",
+                    "returnAll": true
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "getTextContent",
+            "compose": [
+                {
+                    "element": "sldsTruncate",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "getTitleText",
+            "compose": [
+                {
+                    "element": "formattedAddressLink",
+                    "apply": "getTitle"
+                }
+            ]
+        },
+        {
+            "name": "isDisabled",
+            "compose": [
+                {
+                    "element": "formattedAddressLink",
+                    "apply": "isPresent"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "methods": [
+        {
+            "name": "uploadFromPath",
+            "compose": [
+                {
+                    "element": "inputFile",
+                    "apply": "scrollToTop"
+                },
+                {
+                    "element": "inputFile",
+                    "apply": "setText",
+                    "args": [
+                        {
+                            "name": "text",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "elements": [
+        {
+            "name": "inputFile",
+            "type": "editable",
+            "selector": {
+                "css": "input[type='file']"
+            }
+        },
+        {
+            "name": "icon",
+            "type": "utam-lightning/pageObjects/primitiveIcon",
+            "selector": {
+                "css": "lightning-primitive-icon"
+            },
+            "public": true
+        }
+    ]
+}

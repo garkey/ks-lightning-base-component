@@ -1,0 +1,87 @@
+{
+    "type": "clickable",
+    "exposeRootElement": true,
+    "shadow": {
+        "elements": [
+            {
+                "name": "buttonElement",
+                "type": "clickable",
+                "public": true,
+                "selector": {
+                    "css": "button"
+                }
+            },
+            {
+                "name": "selectedText",
+                "selector": {
+                    "css": ".slds-text-selected"
+                }
+            },
+            {
+                "name": "notSelectedText",
+                "selector": {
+                    "css": ".slds-text-not-selected"
+                }
+            },
+            {
+                "name": "selectedIcon",
+                "type": "utam-lightning/pageObjects/primitiveIcon",
+                "public": true,
+                "selector": {
+                    "css": ".slds-text-selected lightning-primitive-icon"
+                }
+            },
+            {
+                "name": "notSelectedIcon",
+                "type": "utam-lightning/pageObjects/primitiveIcon",
+                "public": true,
+                "selector": {
+                    "css": ".slds-text-not-selected lightning-primitive-icon"
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "click",
+            "compose": [
+                {
+                    "apply": "click",
+                    "element": "buttonElement"
+                }
+            ]
+        },
+        {
+            "name": "getClassAttr",
+            "compose": [
+                {
+                    "apply": "getAttribute",
+                    "element": "buttonElement",
+                    "args": [
+                        {
+                            "value": "\"class\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getSelectedLabel",
+            "compose": [
+                {
+                    "apply": "getText",
+                    "element": "selectedText"
+                }
+            ]
+        },
+        {
+            "name": "getNotSelectedLabel",
+            "compose": [
+                {
+                    "apply": "getText",
+                    "element": "notSelectedText"
+                }
+            ]
+        }
+    ]
+}

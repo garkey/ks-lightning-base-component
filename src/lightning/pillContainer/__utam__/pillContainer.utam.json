@@ -1,0 +1,15 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "allPills",
+                "type": "utam-lightning/pageObjects/pill",
+                "selector": {
+                    "css": "lightning-pill",
+                    "returnAll": true
+                },
+                "public": true
+            }
+        ]
+    }
+}

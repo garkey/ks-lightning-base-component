@@ -1,0 +1,29 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "checkboxes",
+                "public": true,
+                "type": "clickable",
+                "selector": {
+                    "css": "input[type=checkbox]",
+                    "returnAll": true
+                }
+            },
+            {
+                "name": "checkboxByIndex",
+                "public": true,
+                "type": "clickable",
+                "selector": {
+                    "css": "input[type=checkbox]:nth-of-type(%d)",
+                    "args": [
+                        {
+                            "name": "index",
+                            "type": "number"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

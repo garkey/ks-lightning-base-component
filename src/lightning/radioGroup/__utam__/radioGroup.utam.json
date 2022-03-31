@@ -1,0 +1,50 @@
+{
+    "methods": [
+        {
+            "name": "getSelectedRadioValue",
+            "compose": [
+                {
+                    "element": "selectedRadio",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"value\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "selectRadioWithValue",
+            "compose": [
+                {
+                    "element": "radioWithValue",
+                    "apply": "javascriptClick"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "selectedRadio",
+                "selector": {
+                    "css": "input[type='radio']:checked"
+                }
+            },
+            {
+                "name": "radioWithValue",
+                "type": "clickable",
+                "selector": {
+                    "css": "input[value='%s']",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

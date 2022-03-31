@@ -1,0 +1,88 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "assistiveText",
+                "selector": {
+                    "css": ".slds-assistive-text"
+                }
+            },
+            {
+                "name": "variantActiveStep",
+                "selector": {
+                    "css": ".slds-progress-ring.slds-progress-ring_active-step"
+                }
+            },
+            {
+                "name": "variantExpired",
+                "selector": {
+                    "css": ".slds-progress-ring.slds-progress-ring_expired"
+                }
+            },
+            {
+                "name": "variantWarning",
+                "selector": {
+                    "css": ".slds-progress-ring.slds-progress-ring_warning"
+                }
+            },
+            {
+                "name": "currentValue",
+                "selector": {
+                    "css": "[aria-valuenow]"
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "getAssistiveText",
+            "compose": [
+                {
+                    "element": "assistiveText",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "getValue",
+            "compose": [
+                {
+                    "element": "currentValue",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"aria-valuenow\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "isActiveStepVariant",
+            "compose": [
+                {
+                    "element": "variantActiveStep",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "isExpiredVariant",
+            "compose": [
+                {
+                    "element": "variantExpired",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "isWarningVariant",
+            "compose": [
+                {
+                    "element": "variantWarning",
+                    "apply": "isPresent"
+                }
+            ]
+        }
+    ]
+}

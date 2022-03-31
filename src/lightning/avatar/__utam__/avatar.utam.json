@@ -1,0 +1,79 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "image",
+                "selector": {
+                    "css": "img"
+                }
+            },
+            {
+                "name": "initials",
+                "selector": {
+                    "css": ".slds-avatar__initials"
+                }
+            },
+            {
+                "name": "icon",
+                "type": "utam-lightning/pageObjects/icon",
+                "selector": {
+                    "css": "lightning-icon"
+                },
+                "public": true
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "getClassAttr",
+            "compose": [
+                {
+                    "apply": "getAttribute",
+                    "element": "root",
+                    "args": [
+                        {
+                            "value": "\"class\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getImageTitle",
+            "compose": [
+                {
+                    "element": "image",
+                    "apply": "getTitle"
+                }
+            ]
+        },
+        {
+            "name": "getAlternativeText",
+            "compose": [
+                {
+                    "element": "image",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"alt\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getSrc",
+            "compose": [
+                {
+                    "element": "image",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"src\""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

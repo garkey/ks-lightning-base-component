@@ -1,0 +1,267 @@
+{
+    "methods": [
+        {
+            "name": "hasLabel",
+            "compose": [
+                {
+                    "element": "label",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "getLabelText",
+            "compose": [
+                {
+                    "element": "label",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "getValueText",
+            "compose": [
+                {
+                    "element": "input",
+                    "apply": "getValue"
+                }
+            ]
+        },
+        {
+            "name": "setText",
+            "compose": [
+                {
+                    "element": "input",
+                    "apply": "scrollToTop"
+                },
+                {
+                    "element": "input",
+                    "apply": "javascriptClick"
+                },
+                {
+                    "element": "input",
+                    "apply": "clear"
+                },
+                {
+                    "element": "input",
+                    "apply": "setText",
+                    "args": [
+                        {
+                            "name": "text",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "toggleCheckbox",
+            "compose": [
+                {
+                    "element": "inputCheckbox",
+                    "apply": "javascriptClick"
+                }
+            ]
+        },
+        {
+            "name": "getCheckedState",
+            "compose": [
+                {
+                    "element": "inputCheckbox",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"checked\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "selectRadio",
+            "compose": [
+                {
+                    "element": "inputRadio",
+                    "apply": "javascriptClick"
+                }
+            ]
+        },
+        {
+            "name": "getErrorText",
+            "compose": [
+                {
+                    "element": "error",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "hasError",
+            "compose": [
+                {
+                    "element": "error",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "isReadonly",
+            "compose": [
+                {
+                    "element": "input",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"readonly\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "isEnabled",
+            "compose": [
+                {
+                    "element": "input",
+                    "apply": "isEnabled"
+                }
+            ]
+        },
+        {
+            "name": "selectDate",
+            "external": {
+                "type": "utam-lightning/utils/inputUtils",
+                "apply": "selectDate",
+                "args": [
+                    {
+                        "name": "date",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "selectTime",
+            "external": {
+                "type": "utam-lightning/utils/inputUtils",
+                "apply": "selectTime",
+                "args": [
+                    {
+                        "name": "time",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "check",
+            "external": {
+                "type": "utam-lightning/utils/inputUtils",
+                "apply": "setCheckboxState",
+                "args": [
+                    {
+                        "name": "state",
+                        "type": "boolean"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "isSelectable",
+            "compose": [
+                {
+                    "element": "inputCheckbox",
+                    "apply": "isEnabled"
+                }
+            ]
+        },
+        {
+            "name": "scrollToCenter",
+            "compose": [
+                {
+                    "element": "root",
+                    "apply": "scrollToCenter"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "helpText",
+                "public": true,
+                "type": "utam-lightning/pageObjects/helptext",
+                "selector": {
+                    "css": "lightning-helptext"
+                }
+            },
+            {
+                "name": "datepicker",
+                "public": true,
+                "type": "utam-lightning/pageObjects/datepicker",
+                "selector": {
+                    "css": "lightning-datepicker"
+                }
+            },
+            {
+                "name": "timepicker",
+                "public": true,
+                "type": "utam-lightning/pageObjects/timepicker",
+                "selector": {
+                    "css": "lightning-timepicker"
+                }
+            },
+            {
+                "name": "datetimepicker",
+                "public": true,
+                "type": "utam-lightning/pageObjects/datetimepicker",
+                "selector": {
+                    "css": "lightning-datetimepicker"
+                }
+            },
+            {
+                "name": "label",
+                "selector": {
+                    "css": "label"
+                },
+                "elements": [
+                    {
+                        "name": "required",
+                        "selector": {
+                            "css": ".slds-required"
+                        },
+                        "public": "true"
+                    }
+                ]
+            },
+            {
+                "name": "input",
+                "type": "editable",
+                "selector": {
+                    "css": "input"
+                }
+            },
+            {
+                "name": "inputCheckbox",
+                "type": "clickable",
+                "selector": {
+                    "css": "input[type='checkbox']"
+                }
+            },
+            {
+                "name": "inputRadio",
+                "type": "clickable",
+                "selector": {
+                    "css": "input[type='radio']"
+                }
+            },
+            {
+                "name": "error",
+                "selector": {
+                    "css": ".slds-form-element__help"
+                },
+                "public": true
+            }
+        ]
+    }
+}

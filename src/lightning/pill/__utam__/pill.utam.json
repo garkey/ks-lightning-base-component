@@ -1,0 +1,55 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "pill",
+                "type": "clickable",
+                "selector": {
+                    "css": ".slds-pill"
+                }
+            },
+            {
+                "name": "remove",
+                "type": "clickable",
+                "selector": {
+                    "css": ".slds-pill__remove"
+                }
+            },
+            {
+                "name": "label",
+                "selector": {
+                    "css": ".slds-pill__label"
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "click",
+            "compose": [
+                {
+                    "apply": "click",
+                    "element": "pill"
+                }
+            ]
+        },
+        {
+            "name": "remove",
+            "compose": [
+                {
+                    "apply": "click",
+                    "element": "remove"
+                }
+            ]
+        },
+        {
+            "name": "getLabelText",
+            "compose": [
+                {
+                    "apply": "getText",
+                    "element": "label"
+                }
+            ]
+        }
+    ]
+}

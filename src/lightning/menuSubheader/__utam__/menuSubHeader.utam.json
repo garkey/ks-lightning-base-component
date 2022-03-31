@@ -1,0 +1,22 @@
+{
+    "methods": [
+        {
+            "name": "getHeaderText",
+            "compose": [
+                {
+                    "element": "subHeader",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ],
+    "elements": [
+        {
+            "name": "subHeader",
+            "public": true,
+            "selector": {
+                "css": "span"
+            }
+        }
+    ]
+}

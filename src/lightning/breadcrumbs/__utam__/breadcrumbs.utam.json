@@ -1,0 +1,69 @@
+{
+  "methods": [
+    {
+      "name": "getBreadcrumbLabelAtIndex",
+      "compose": [
+        {
+          "element": "breadcrumbAtIndex",
+          "apply": "getText"
+        }
+      ]
+    },
+    {
+      "name": "getBreadcrumbHrefAtIndex",
+      "compose": [
+        {
+          "element": "breadcrumbLink",
+          "apply": "getAttribute",
+          "args": [
+            {
+              "value": "\"href\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getBreadcrumbsCount",
+      "compose": [
+        {
+          "element": "breadcrumbs",
+          "apply": "size"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "name": "breadcrumbs",
+      "selector": {
+        "css": "lightning-breadcrumb",
+        "returnAll": true
+      }
+    },
+    {
+      "name": "breadcrumbAtIndex",
+      "public": true,
+      "selector": {
+        "css": "lightning-breadcrumb:nth-of-type(%d)",
+        "args": [
+          {
+            "name": "index",
+            "type": "number"
+          }
+        ]
+      },
+      "shadow": {
+        "elements": [
+          {
+            "name": "breadcrumbLink",
+            "type": "clickable",
+            "selector": {
+              "css": "a"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

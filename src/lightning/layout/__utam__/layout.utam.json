@@ -1,0 +1,20 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "layoutItem",
+                "type": "utam-lightning/pageObjects/layoutItem",
+                "selector": {
+                    "css": "lightning-layout-item:nth-child(%d)",
+                    "args": [
+                        {
+                            "name": "index",
+                            "type": "number"
+                        }
+                    ]
+                },
+                "public": true
+            }
+        ]
+    }
+}

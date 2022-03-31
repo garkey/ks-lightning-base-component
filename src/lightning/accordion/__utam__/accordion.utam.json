@@ -1,0 +1,13 @@
+{
+    "elements": [
+        {
+            "name": "accordionSections",
+            "public": true,
+            "type": "utam-lightning/pageObjects/accordionSection",
+            "selector": {
+                "css": "lightning-accordion-section",
+                "returnAll": true
+            }
+        }
+    ]
+}

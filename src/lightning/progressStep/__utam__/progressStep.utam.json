@@ -1,0 +1,47 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "progressButton",
+                "type": "clickable",
+                "selector": {
+                    "css": "button"
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "click",
+            "compose": [
+                {
+                    "element": "progressButton",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "getClassName",
+            "compose": [
+                {
+                    "apply": "getAttribute",
+                    "element": "root",
+                    "args": [
+                        {
+                            "value": "\"class\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getLabelText",
+            "compose": [
+                {
+                    "element": "progressButton",
+                    "apply": "getTitle"
+                }
+            ]
+        }
+    ]
+}

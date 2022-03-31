@@ -1,0 +1,40 @@
+{
+    "methods": [
+        {
+            "name": "getAttribute",
+            "compose": [
+                {
+                    "element": "root",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "name": "text",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getItemText",
+            "compose": [
+                {
+                    "element": "link",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "link",
+                "public": true,
+                "type": "clickable",
+                "selector": {
+                    "css": "a"
+                }
+            }
+        ]
+    }
+}

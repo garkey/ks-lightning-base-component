@@ -1,0 +1,91 @@
+{
+    "methods": [
+        {
+            "name": "expand",
+            "compose": [
+                {
+                    "element": "triggerInput",
+                    "apply": "click"
+                },
+                {
+                    "element": "itemsWrapper",
+                    "apply": "waitForVisible"
+                }
+            ]
+        }
+    ],
+    "exposeRootElement": true,
+    "type": "editable",
+    "shadow": {
+        "elements": [
+            {
+                "name": "triggerInput",
+                "selector": {
+                    "css": "input"
+                },
+                "type": "clickable"
+            },
+            {
+                "name": "triggerIcon",
+                "type": "utam-lightning/pageObjects/icon",
+                "selector": {
+                    "css": "lightning-icon"
+                },
+                "public": true
+            },
+            {
+                "name": "groups",
+                "selector": {
+                    "css": "ul[role='group']",
+                    "returnAll": true
+                },
+                "public": true
+            },
+            {
+                "name": "itemsWrapper",
+                "selector": {
+                    "css": "div.slds-dropdown_fluid"
+                }
+            },
+            {
+                "name": "items",
+                "selector": {
+                    "css": "lightning-base-combobox-item",
+                    "returnAll": true
+                },
+                "type": "utam-lightning/pageObjects/baseComboboxItem",
+                "public": true
+            },
+            {
+                "name": "itemByValue",
+                "selector": {
+                    "css": "lightning-base-combobox-item",
+                    "returnAll": true
+                },
+                "type": "utam-lightning/pageObjects/baseComboboxItem",
+                "filter": {
+                    "apply": "getItemValue",
+                    "findFirst": true,
+                    "matcher": {
+                        "type": "stringContains",
+                        "args": [
+                            {
+                                "name": "text",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                },
+                "public": true
+            },
+            {
+                "name": "selectedItemInput",
+                "selector": {
+                    "css": "input[type='text']"
+                },
+                "type": "editable",
+                "public": true
+            }
+        ]
+    }
+}

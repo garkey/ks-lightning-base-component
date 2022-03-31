@@ -1,0 +1,136 @@
+{
+    "methods": [
+        {
+            "name": "getMonthText",
+            "compose": [
+                {
+                    "element": "currentMonth",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "clickDayByRowAndColumn",
+            "compose": [
+                {
+                    "element": "dayIndexedCell",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "clickDayByDate",
+            "compose": [
+                {
+                    "element": "dayByDate",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "getDayText",
+            "compose": [
+                {
+                    "element": "dayIndexedCell",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "clickToday",
+            "compose": [
+                {
+                    "element": "todayButton",
+                    "apply": "click"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "month",
+                "selector": {
+                    "css": "slds-datepicker__filter_month"
+                },
+                "elements": [
+                    {
+                        "name": "prevMonthButton",
+                        "type": "utam-lightning/pageObjects/buttonIcon",
+                        "selector": {
+                            "css": "lightning-button-icon:nth-of-type(1)"
+                        },
+                        "public": true
+                    },
+                    {
+                        "name": "nextMonthButton",
+                        "type": "utam-lightning/pageObjects/buttonIcon",
+                        "selector": {
+                            "css": "lightning-button-icon:nth-of-type(2)"
+                        },
+                        "public": true
+                    },
+                    {
+                        "name": "currentMonth",
+                        "selector": {
+                            "css": "h2[id*='month-title']"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "yearSelector",
+                "type": "utam-lightning/pageObjects/select",
+                "selector": {
+                    "css": "lightning-select"
+                },
+                "public": true
+            },
+            {
+                "name": "days",
+                "selector": {
+                    "css": "table"
+                },
+                "elements": [
+                    {
+                        "name": "dayIndexedCell",
+                        "type": "clickable",
+                        "selector": {
+                            "css": "tr:nth-of-type(%d) td:nth-of-type(%d)",
+                            "args": [
+                                {
+                                    "name": "row",
+                                    "type": "number"
+                                },
+                                {
+                                    "name": "column",
+                                    "type": "number"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dayByDate",
+                        "type": "clickable",
+                        "selector": {
+                            "css": "tr td[data-value='%s']",
+                            "args": [
+                                {
+                                    "name": "date",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "todayButton",
+                "type": "clickable",
+                "selector": {
+                    "css": "button[name='today']"
+                }
+            }
+        ]
+    }
+}

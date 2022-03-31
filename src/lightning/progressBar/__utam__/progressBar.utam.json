@@ -1,0 +1,58 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "assistiveText",
+                "selector": {
+                    "css": ".slds-assistive-text"
+                }
+            },
+            {
+                "name": "progressBusy",
+                "selector": {
+                    "css": "[aria-busy]"
+                }
+            },
+            {
+                "name": "currentValue",
+                "selector": {
+                    "css": "[aria-valuenow]"
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "getAssistiveText",
+            "compose": [
+                {
+                    "element": "assistiveText",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "isBusy",
+            "compose": [
+                {
+                    "element": "progressBusy",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "getValue",
+            "compose": [
+                {
+                    "element": "currentValue",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"aria-valuenow\""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "methods": [
+        {
+            "name": "clickAutoPlay",
+            "compose": [
+                {
+                    "element": "scrollButton",
+                    "apply": "click"
+                }
+            ]
+        }
+    ],
+    "elements": [
+        {
+            "name": "carouselImages",
+            "type": "utam-lightning/pageObjects/carouselImage",
+            "selector": {
+                "css": "lightning-carousel-image",
+                "returnAll": true
+            },
+            "public": true
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "scrollButton",
+                "selector": {
+                    "css": "button"
+                },
+                "type": "clickable"
+            },
+            {
+                "name": "tabItems",
+                "selector": {
+                    "css": "li a",
+                    "returnAll": true
+                },
+                "type": "clickable",
+                "public": true
+            }
+        ]
+    }
+}

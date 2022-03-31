@@ -1,0 +1,71 @@
+{
+    "methods": [
+        {
+            "name": "isActive",
+            "compose": [
+                {
+                    "element": "sectionOpen",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "getLabel",
+            "compose": [
+                {
+                    "element": "label",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "toggle",
+            "compose": [
+                {
+                    "element": "label",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "getContent",
+            "compose": [
+                {
+                    "element": "content",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "sectionOpen",
+                "selector": {
+                    "css": "section.slds-accordion__section.slds-is-open"
+                }
+            },
+            {
+                "name": "section",
+                "selector": {
+                    "css": "section.slds-accordion__section"
+                },
+                "elements": [
+                    {
+                        "name": "label",
+                        "type": "clickable",
+                        "selector": {
+                            "css": "section.slds-accordion__section > div.slds-accordion__summary > h3 > button > span"
+                        }
+                    },
+                    {
+                        "name": "content",
+                        "selector": {
+                            "css": "div.slds-accordion__content"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

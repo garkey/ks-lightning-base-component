@@ -1,0 +1,69 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "progressSteps",
+                "type": "utam-lightning/pageObjects/progressStep",
+                "selector": {
+                    "css": "lightning-progress-step",
+                    "returnAll": true
+                },
+                "public": true
+            },
+            {
+                "name": "stepWithLabel",
+                "type": "utam-lightning/pageObjects/progressStep",
+                "selector": {
+                    "css": "lightning-progress-step",
+                    "returnAll": true
+                },
+                "filter": {
+                    "apply": "getLabelText",
+                    "findFirst": true,
+                    "matcher": {
+                        "type": "stringContains",
+                        "args": [
+                            {
+                                "name": "partialLabel",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                },
+                "public": true
+            },
+            {
+                "name": "stepWithError",
+                "type": "utam-lightning/pageObjects/progressStep",
+                "selector": {
+                    "css": "lightning-progress-step",
+                    "returnAll": true
+                },
+                "filter": {
+                    "apply": "getClassName",
+                    "findFirst": true,
+                    "matcher": {
+                        "type": "stringContains",
+                        "args": [
+                            {
+                                "value": "\"slds-has-error\""
+                            }
+                        ]
+                    }
+                },
+                "public": true,
+                "nullable": true
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "getCurrentStep",
+            "return": "utam-lightning/pageObjects/progressStep",
+            "external": {
+                "apply": "getCurrentStep",
+                "type": "utam-lightning/utils/progressIndicatorUtils"
+            }
+        }
+    ]
+}

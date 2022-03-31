@@ -1,0 +1,45 @@
+{
+    "shadow": {
+        "elements": [
+            {
+                "name": "formattedEmailIcon",
+                "type": "utam-lightning/pageObjects/icon",
+                "selector": {
+                    "css": "lightning-icon"
+                },
+                "public": true
+            },
+            {
+                "name": "formattedEmailLink",
+                "selector": {
+                    "css": "a"
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "getLinkHref",
+            "compose": [
+                {
+                    "element": "formattedEmailLink",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"href\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getLinkInnerText",
+            "compose": [
+                {
+                    "element": "formattedEmailLink",
+                    "apply": "getText"
+                }
+            ]
+        }
+    ]
+}

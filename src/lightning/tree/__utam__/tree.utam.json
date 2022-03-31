@@ -1,0 +1,12 @@
+{
+    "elements": [
+        {
+            "name": "treeRoot",
+            "public": true,
+            "type": "utam-lightning/pageObjects/treeItem",
+            "selector": {
+                "css": "lightning-tree-item[role='tree']"
+            }
+        }
+    ]
+}

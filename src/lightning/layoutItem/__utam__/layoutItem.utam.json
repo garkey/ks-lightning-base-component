@@ -1,0 +1,12 @@
+{
+    "elements": [
+        {
+            "name": "layoutItemContent",
+            "type": "container",
+            "selector": {
+                "css": ":scope *"
+            },
+            "public": true
+        }
+    ]
+}

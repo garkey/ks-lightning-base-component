@@ -1,0 +1,120 @@
+{
+    "methods": [
+        {
+            "name": "clickButton",
+            "compose": [
+                {
+                    "element": "button",
+                    "apply": "scrollToTop"
+                },
+                {
+                    "element": "button",
+                    "apply": "click"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "button",
+                "type": "clickable",
+                "selector": {
+                    "css": "button"
+                }
+            },
+            {
+                "name": "icon",
+                "type": "utam-lightning/pageObjects/primitiveIcon",
+                "selector": {
+                    "css": "lightning-primitive-icon"
+                },
+                "public": true
+            }
+        ]
+    },
+    "elements": [
+        {
+            "name": "allCustomMenuItems",
+            "type": "container",
+            "selector": {
+                "css": ":scope *",
+                "returnAll": true
+            },
+            "public": true
+        },
+        {
+            "name": "customMenuItemByTitle",
+            "type": "container",
+            "selector": {
+                "css": ":scope *[title='%s']",
+                "args": [
+                    {
+                        "name": "title",
+                        "type": "string"
+                    }
+                ]
+            },
+            "public": true
+        },
+        {
+            "name": "customMenuItemByIndex",
+            "type": "container",
+            "selector": {
+                "css": ":scope *:nth-of-type(%d)",
+                "args": [
+                    {
+                        "name": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            "public": true
+        },
+        {
+            "name": "menuItem",
+            "type": "utam-lightning/pageObjects/menuItem",
+            "selector": {
+                "css": "lightning-menu-item:nth-child(%d)",
+                "args": [
+                    {
+                        "name": "itemIndex",
+                        "type": "number"
+                    }
+                ]
+            },
+            "public": true
+        },
+        {
+            "name": "menuItemByText",
+            "type": "utam-lightning/pageObjects/menuItem",
+            "selector": {
+                "css": "lightning-menu-item",
+                "returnAll": true
+            },
+            "filter": {
+                "apply": "getItemText",
+                "findFirst": true,
+                "matcher": {
+                    "type": "stringContains",
+                    "args": [
+                        {
+                            "name": "text",
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "public": true
+        },
+        {
+            "name": "allMenuItems",
+            "type": "utam-lightning/pageObjects/menuItem",
+            "selector": {
+                "css": "lightning-menu-item",
+                "returnAll": true
+            },
+            "public": true
+        }
+    ]
+}

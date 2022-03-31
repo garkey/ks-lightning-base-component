@@ -1,0 +1,86 @@
+{
+    "type": "clickable",
+    "exposeRootElement": true,
+    "shadow": {
+        "elements": [
+            {
+                "name": "button",
+                "type": "clickable",
+                "public": "true",
+                "selector": {
+                    "css": "button"
+                }
+            },
+            {
+                "name": "buttonWithTitle",
+                "type": "clickable",
+                "public": true,
+                "selector": {
+                    "css": "button[title='%s']",
+                    "args": [
+                        {
+                            "name": "buttonTitle",
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "icon",
+                "type": "utam-lightning/pageObjects/primitiveIcon",
+                "public": true,
+                "selector": {
+                    "css": "lightning-primitive-icon"
+                }
+            }
+        ]
+    },
+    "methods": [
+        {
+            "name": "clickButton",
+            "compose": [
+                {
+                    "element": "button",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "clickButtonWithTitle",
+            "compose": [
+                {
+                    "element": "buttonWithTitle",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "getClassAttr",
+            "compose": [
+                {
+                    "apply": "getAttribute",
+                    "element": "button",
+                    "args": [
+                        {
+                            "value": "\"class\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "isSelected",
+            "compose": [
+                {
+                    "apply": "getAttribute",
+                    "element": "button",
+                    "args": [
+                        {
+                            "value": "\"aria-pressed\""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

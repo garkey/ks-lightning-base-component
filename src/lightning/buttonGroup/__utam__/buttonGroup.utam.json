@@ -1,0 +1,18 @@
+{
+    "elements": [
+        {
+            "name": "buttonByIndex",
+            "type": "container",
+            "selector": {
+                "css": ":scope *:nth-of-type(%d)",
+                "args": [
+                    {
+                        "name": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            "public": true
+        }
+    ]
+}

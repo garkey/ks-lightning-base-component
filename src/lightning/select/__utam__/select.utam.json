@@ -1,0 +1,118 @@
+{
+    "methods": [
+        {
+            "name": "getLabelText",
+            "compose": [
+                {
+                    "element": "label",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "isRequired",
+            "compose": [
+                {
+                    "element": "required",
+                    "apply": "isPresent"
+                }
+            ]
+        },
+        {
+            "name": "expand",
+            "compose": [
+                {
+                    "element": "selectBox",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "selectByValue",
+            "compose": [
+                {
+                    "element": "selectValueOption",
+                    "apply": "click"
+                }
+            ]
+        },
+        {
+            "name": "selectByText",
+            "compose": [
+                {
+                    "element": "selectTextOption",
+                    "apply": "click"
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "label",
+                "selector": {
+                    "css": "label"
+                },
+                "elements": [
+                    {
+                        "name": "required",
+                        "selector": {
+                            "css": ".slds-required"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "helptext",
+                "type": "utam-lightning/pageObjects/helptext",
+                "selector": {
+                    "css": "lightning-helptext"
+                },
+                "public": true
+            },
+            {
+                "name": "selectBox",
+                "type": "clickable",
+                "selector": {
+                    "css": "select"
+                },
+                "elements": [
+                    {
+                        "name": "selectValueOption",
+                        "type": "clickable",
+                        "selector": {
+                            "css": "option[value='%s']",
+                            "args": [
+                                {
+                                    "name": "text",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "selectTextOption",
+                        "type": "clickable",
+                        "selector": {
+                            "css": "option",
+                            "returnAll": true
+                        },
+                        "filter": {
+                            "apply": "getText",
+                            "findFirst": true,
+                            "matcher": {
+                                "type": "stringContains",
+                                "args": [
+                                    {
+                                        "name": "text",
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

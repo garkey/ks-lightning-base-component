@@ -1,0 +1,108 @@
+{
+    "methods": [
+        {
+            "name": "getLinkUrl",
+            "compose": [
+                {
+                    "element": "link",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"href\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getTabIndex",
+            "compose": [
+                {
+                    "element": "link",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"tabindex\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getDescription",
+            "compose": [
+                {
+                    "element": "description",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "getHeader",
+            "compose": [
+                {
+                    "element": "header",
+                    "apply": "getText"
+                }
+            ]
+        },
+        {
+            "name": "getImageUrl",
+            "compose": [
+                {
+                    "element": "image",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"src\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getAlternativeText",
+            "compose": [
+                {
+                    "element": "image",
+                    "apply": "getAttribute",
+                    "args": [
+                        {
+                            "value": "\"alt\""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "shadow": {
+        "elements": [
+            {
+                "name": "link",
+                "selector": {
+                    "css": "a"
+                },
+                "elements": [
+                    {
+                        "name": "image",
+                        "selector": {
+                            "css": "img"
+                        }
+                    },
+                    {
+                        "name": "header",
+                        "selector": {
+                            "css": "h2"
+                        }
+                    },
+                    {
+                        "name": "description",
+                        "selector": {
+                            "css": "p"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
